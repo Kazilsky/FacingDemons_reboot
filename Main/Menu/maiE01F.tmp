@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpw5ah4qpf3ur"]
+
+[ext_resource type="Texture2D" uid="uid://coipl3isdnpy5" path="res://Sprites/Menu/bg.png" id="1_ybdw4"]
+[ext_resource type="AudioStream" uid="uid://c5fgu8dden2j4" path="res://Sounds/Menu/menu.ogg" id="2_qiebw"]
+[ext_resource type="Script" path="res://Main/Menu/BackGround.gd" id="2_thv7g"]
+[ext_resource type="Script" path="res://Main/Menu/MenuSounds.gd" id="3_5csvv"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(556, 335)
+texture = ExtResource("1_ybdw4")
+script = ExtResource("2_thv7g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(556, 335)
+ignore_rotation = false
+zoom = Vector2(2.7, 2.7)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource("2_qiebw")
+script = ExtResource("3_5csvv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
